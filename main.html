@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const encodedPasswords = ["MjM0MTQyMzQ=", "R01TMjAyNQ==", "bGltYnVzY29tcGFueQ==", "bWFpbnRlbmFuY2VmcmlkYXk="];
+    const encodedPasswords2 = ["cGll", "Y3Vt"];
+    
+    const storedPassword = sessionStorage.getItem('password');
+    const storedPassword2 = sessionStorage.getItem('password2');
+
+    const isPasswordCorrect = storedPassword && encodedPasswords.includes(storedPassword);
+    const isPassword2Correct = storedPassword2 && encodedPasswords2.includes(storedPassword2);
+    
+    if (!isPasswordCorrect || !isPassword2Correct) {
+      alert("Access denied. Please log in.");
+      window.location.href = "index.html"; 
+    }
+  });
+</script>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/hl-bright.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebXash</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
